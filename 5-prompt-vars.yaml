@@ -1,0 +1,14 @@
+- name: take the variables form the prompt
+  host: webserver
+  become: yes
+  vars prompt:
+    - name: USERNAME
+      prompt: please enter your username
+      private: false # This will make the input visible what the user is typing
+    - name: PASSWORD
+      prompt: please enter you password
+      private: true # This will make the input hided from the user
+  tasks:
+    - name: print the username and password
+      ansible.builtin.debug:
+        msg: 'The username is {{ USERNAME }} AND THE PASSWORD IS {{ PASSWORD }}'

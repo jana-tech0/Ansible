@@ -1,0 +1,11 @@
+---
+- name: vairables from files 
+  hosts: webserver 
+  become: yes 
+  vars_files:
+    - variables.yaml  
+  tasks: 
+    - name: print the variables through seperate variables file
+      ansible.builtin.debug:
+        msg: "The course is {{ NAME }} , THE TRAINER IS {{ TRAINER }} AND THE DURARION IS {{ DURATION }}" 
+        

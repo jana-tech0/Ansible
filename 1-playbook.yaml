@@ -1,7 +1,8 @@
+---
 name: ping the node
 hosts: webserver-1
+become: yes
 #This is the list of tasks
 tasks:
   -name: pinging the server
-  #This is the map
    ansible.builtin.ping:

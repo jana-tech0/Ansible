@@ -1,0 +1,15 @@
+---
+- name: Install packages using loops 
+  hosts: webserver 
+  become: yes 
+
+  tasks:
+    - name: install packages using the loops 
+      ansible.builtin.apt: 
+        name: "{{ item }}"
+        state: present 
+      loop:
+        - nginx 
+        - git 
+        - curl 
+        
